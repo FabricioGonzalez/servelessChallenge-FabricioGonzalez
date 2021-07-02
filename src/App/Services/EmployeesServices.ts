@@ -1,4 +1,3 @@
-import EmployeeDTO from 'src/Data/EmployeeDTO';
 import CreateEmployeeUsecase from '../Usecases/createEmployeeUsecase';
 import DeleteEmployeeUsecase from '../Usecases/deleteEmployeeUsecase';
 import GetAllEmployeeUsecase from '../Usecases/getAllEmployeeUsecase';
@@ -25,7 +24,7 @@ class EmployeeService {
     this.deleteEmployeeUsecase = Delete;
     this.updateEmployeeUsecase = Update;
   }
-  async create(employee: EmployeeDTO) {
+  async create(employee: any) {
     const createdEmployee = await this.createEmployeeUsecase.CreateEmployee(
       employee,
     );
@@ -40,7 +39,7 @@ class EmployeeService {
     return Employee;
   }
 
-  async update(id: string, employee: EmployeeDTO) {
+  async update(id: string, employee: any) {
     const updatedEmployee = await this.updateEmployeeUsecase.updateEmployee(
       id,
       employee,
