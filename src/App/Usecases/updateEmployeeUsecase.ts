@@ -8,7 +8,10 @@ class UpdateEmployeeUsecase {
     this.repository = Repository;
   }
 
-  async updateEmployee(id: string, employee: Employee): Promise<Employee> {
+  async updateEmployee(
+    id: string,
+    employee: Employee,
+  ): Promise<Employee | any> {
     const Employee = await this.repository.update<Employee>(id, employee);
 
     return Employee;

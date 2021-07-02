@@ -8,7 +8,7 @@ class CreateEmployeeUsecase {
     this.repository = Repository;
   }
 
-  async CreateEmployee(employee: Employee): Promise<Employee> {
+  async CreateEmployee(employee: Employee): Promise<Employee | any> {
     const Employee = await this.repository.create(employee);
 
     return Employee;

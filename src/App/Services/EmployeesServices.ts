@@ -39,14 +39,14 @@ class EmployeeService {
     return Employee;
   }
 
-  async update(id: string, employee: any) {
+  async update(id: string, employee: any): Promise<any> {
     const updatedEmployee = await this.updateEmployeeUsecase.updateEmployee(
       id,
       employee,
     );
     return updatedEmployee;
   }
-  async delete(id: string) {
+  async delete(id: string): Promise<any> {
     const deletedEmployee = await this.deleteEmployeeUsecase.DeleteEmployee(id);
     return deletedEmployee;
   }
