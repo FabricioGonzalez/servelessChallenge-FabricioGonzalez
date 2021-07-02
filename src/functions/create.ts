@@ -35,11 +35,13 @@ const handler: APIGatewayProxyHandler = async (
 
     let erro = null;
 
-    await Service.create(item).catch((err: Error) => (erro = err));
+    const Employee = await Service.create(item).catch(
+      (err: Error) => (erro = err),
+    );
 
     const response = {
       statusCode: 200,
-      body: JSON.stringify(data, erro),
+      body: JSON.stringify(Employee, erro),
     };
 
     return response;
