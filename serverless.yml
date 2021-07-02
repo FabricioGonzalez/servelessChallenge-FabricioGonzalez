@@ -17,14 +17,14 @@ functions:
     handler: src/functions/delete.handler
     events:
       - http:
-          path: employees/delete
+          path: employees/delete{id}
           method: delete
           cors: true
   findOneEmployee:
     handler: src/functions/findOne.handler
     events:
       - http:
-          path: employees/find_one
+          path: employees/find_one/{id}
           method: get
           cors: true
   findAllEmployees:
@@ -38,7 +38,7 @@ functions:
     handler: src/functions/update.handler
     events:
       - http:
-          path: employees/update
+          path: employees/update/{id}
           method: put
           cors: true
 plugins:

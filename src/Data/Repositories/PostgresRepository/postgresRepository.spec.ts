@@ -9,7 +9,6 @@ describe('Test Suite to Database', () => {
     const pg = new PostgresRepository();
 
     const data = {
-      id: 'sdsadasds',
       name: 'test',
       age: 20,
       position: 'manager',

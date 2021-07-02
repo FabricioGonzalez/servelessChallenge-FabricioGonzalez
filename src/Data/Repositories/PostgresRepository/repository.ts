@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes, UUIDV4 } from 'sequelize';
 import Repository from '../Repository';
 import connection from './connection';
 
@@ -6,6 +6,12 @@ import Employee from './Models/Employee';
 
 Employee.init(
   {
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+      defaultValue: UUIDV4,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,

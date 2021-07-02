@@ -3,14 +3,21 @@ import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult,
 } from 'aws-lambda';
+import Service from '../index';
 
 const handler: APIGatewayProxyHandler = async (
-  _event: APIGatewayProxyEvent,
+  event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
   try {
+    const id: any = event.pathParameters;
+
+    const body: any = event.body;
+
+    const employee = await Service.update(id, JSON.parse(body));
+
     const response = {
       statusCode: 200,
-      body: 'ok',
+      body: JSON.stringify(employee),
     };
     return response;
   } catch (error) {

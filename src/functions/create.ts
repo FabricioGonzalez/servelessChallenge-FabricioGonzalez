@@ -3,7 +3,7 @@ import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult,
 } from 'aws-lambda';
-import { v5 } from 'uuid';
+
 import EmployeeDTO from 'src/Data/EmployeeDTO';
 import Service from '../index';
 
@@ -39,7 +39,7 @@ const handler: APIGatewayProxyHandler = async (
 
     const response = {
       statusCode: 200,
-      body: JSON.stringify(body, erro),
+      body: JSON.stringify(data, erro),
     };
 
     return response;
