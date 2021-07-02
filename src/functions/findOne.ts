@@ -9,7 +9,7 @@ const handler: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
   try {
-    const id: any = event.pathParameters;
+    const { id }: any = event.pathParameters;
 
     const employee = await Service.FindOne(id);
 
