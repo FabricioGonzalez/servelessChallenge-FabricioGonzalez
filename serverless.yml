@@ -17,7 +17,7 @@ functions:
     handler: src/functions/delete.handler
     events:
       - http:
-          path: employees/delete{id}
+          path: employees/delete/{id}
           method: delete
           cors: true
   findOneEmployee:
