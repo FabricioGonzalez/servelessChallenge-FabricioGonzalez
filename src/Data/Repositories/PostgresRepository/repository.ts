@@ -45,13 +45,13 @@ class PostgresRepository implements Repository {
     Id: string,
     employee: Employee,
   ): Promise<Employee | any> {
-    let data = await Employee.update(employee, {
+    let [data, UpdatedEmployee] = await Employee.update(employee, {
       where: {
         id: Id,
         deleted: 0,
       },
     });
-    return data[1];
+    return { data, UpdatedEmployee };
   }
   async findOne<Employee>(Id: string): Promise<Employee | any> {
     let data = await Employee.findAll({
@@ -73,16 +73,17 @@ class PostgresRepository implements Repository {
     return data;
   }
   async delete<Employee>(Id: string): Promise<Employee | any> {
-    let data = await Employee.update(
+    let [data, DeletedEmployee] = await Employee.update(
       { deleted: 1 },
       {
         where: {
           id: Id,
+          deleted: 0,
         },
       },
     );
 
-    return data[1];
+    return { data, DeletedEmployee };
   }
 }
 
