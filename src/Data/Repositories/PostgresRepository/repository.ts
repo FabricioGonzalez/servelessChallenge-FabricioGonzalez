@@ -41,10 +41,7 @@ class PostgresRepository implements Repository {
 
     return data;
   }
-  async update<Employee>(
-    Id: string,
-    employee: Employee,
-  ): Promise<Employee | any> {
+  async update<Employee>(Id: string, employee: Employee): Promise<any> {
     let [data, UpdatedEmployee] = await Employee.update(employee, {
       where: {
         id: Id,
@@ -72,7 +69,7 @@ class PostgresRepository implements Repository {
 
     return data;
   }
-  async delete<Employee>(Id: string): Promise<Employee | any> {
+  async delete(Id: string): Promise<any> {
     let [data, DeletedEmployee] = await Employee.update(
       { deleted: 1 },
       {
