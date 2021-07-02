@@ -51,7 +51,7 @@ class PostgresRepository implements Repository {
         deleted: 0,
       },
     });
-    return data;
+    return data[1];
   }
   async findOne<Employee>(Id: string): Promise<Employee | any> {
     let data = await Employee.findAll({
@@ -82,7 +82,7 @@ class PostgresRepository implements Repository {
       },
     );
 
-    return data;
+    return data[1];
   }
 }
 
